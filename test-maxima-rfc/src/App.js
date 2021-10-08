@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Route } from "react-router-dom";
+import { Mainpage } from "./Components/Mainpage/Mainpage.jsx";
+// import { Dropdawn } from "./Components/Dropdawn/DropdawnOne";
+import {path} from "./Paths/paths"
 
-function App() {
+import "./App.scss";
+import { Dropdawn } from "./Components/Dropdawn/index.js";
+
+export const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Route path={path.mainpage} exact component={Mainpage} />
+      <Route path={path.dropdawn} exact component={Dropdawn} />
+    </BrowserRouter>
   );
-}
-
-export default App;
+};
